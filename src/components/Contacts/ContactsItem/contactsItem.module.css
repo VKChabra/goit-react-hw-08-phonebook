@@ -1,0 +1,9 @@
+.contactsListItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.contactsListItem:last-child {
+  margin-bottom: 0;
+}
