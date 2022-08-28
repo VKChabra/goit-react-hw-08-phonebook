@@ -1,4 +1,4 @@
-import { useDeleteContactMutation } from 'redux/api';
+import { useDeleteContactMutation } from 'redux/contactsApi.js';
 import { BtnLoader } from 'components/Loader';
 import styles from './contactsItem.module.css';
 import PropTypes from 'prop-types';

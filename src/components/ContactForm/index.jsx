@@ -1,4 +1,4 @@
-import { useAddContactMutation } from 'redux/api';
+import { useAddContactMutation } from 'redux/contactsApi.js';
 import { BtnLoader } from 'components/Loader';
 import styles from './contactForm.module.css';
 

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useGetContactsQuery } from 'redux/api';
+import { useGetContactsQuery } from 'redux/contactsApi.js';
 import { getFilter } from 'redux/filter/filterSelectors.js';
 import ContactsItem from 'components/Contacts/ContactsItem';
 import { Loader } from 'components/Loader';
