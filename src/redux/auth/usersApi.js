@@ -4,14 +4,14 @@ export const usersApiSlice = createApi({
   reducerPath: 'usersApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com/users/',
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
-  prepareHeaders: (headers, { getState }) => {
-    const token = getState().auth.token;
-    if (token) {
-      headers.set('authorization', `Bearer ${token}`);
-    }
-    return headers;
-  },
   endpoints: builder => ({
     signup: builder.mutation({
       query: credentials => ({
@@ -28,10 +28,10 @@ export const usersApiSlice = createApi({
       }),
     }),
     logout: builder.mutation({
-      query: token => ({
+      query: credentials => ({
         url: 'logout',
         method: 'POST',
-        header: token,
+        header: credentials,
       }),
     }),
     userInfo: builder.query({

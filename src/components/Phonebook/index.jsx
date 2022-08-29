@@ -1,14 +1,6 @@
-import { lazy } from 'react';
-
-const ContactForm = lazy(() =>
-  import('components/ContactForm' /* webpackChunkName: "ContactForm" */)
-);
-const Filter = lazy(() =>
-  import('components/Filter' /* webpackChunkName: "Filter" */)
-);
-const Contacts = lazy(() =>
-  import('components/Contacts' /* webpackChunkName: "Contacts" */)
-);
+import ContactForm from 'components/ContactForm';
+import Filter from 'components/Filter';
+import Contacts from 'components/Contacts';
 
 const Phonebook = () => {
   return (

@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import UserMenu from 'components/UserMenu';
 import styles from './navbar.module.css';
 
 const Navbar = () => {
@@ -17,6 +18,7 @@ const Navbar = () => {
         <NavLink to="/register" className={styles.navLink}>
           Register
         </NavLink>
+        <UserMenu />
       </nav>
     </header>
   );
