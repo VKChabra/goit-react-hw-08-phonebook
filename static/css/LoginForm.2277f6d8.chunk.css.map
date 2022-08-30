@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/LoginForm.2277f6d8.chunk.css","mappings":"AAAA,uBACE,aACF,CACA,6BACE,aACF","sources":["components/LoginForm/loginForm.module.css"],"sourcesContent":[".link {\n  color: #1976d2;\n}\n.link:hover {\n  color: #70b5fb;\n}\n"],"names":[],"sourceRoot":""}

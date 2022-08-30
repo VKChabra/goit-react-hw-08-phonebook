@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/Home.1fdc1b87.chunk.js","mappings":"kKASA,UATa,WACX,OACE,iCACE,sCACA,qFAGL,C","sources":["components/Home/index.jsx"],"sourcesContent":["const Home = () => {\n  return (\n    <>\n      <h1>Welcome!</h1>\n      <h2>Please login first in order to get access to phonebook</h2>\n    </>\n  );\n};\n\nexport default Home;\n"],"names":[],"sourceRoot":""}
