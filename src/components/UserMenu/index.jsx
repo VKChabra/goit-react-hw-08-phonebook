@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLogoutMutation } from 'redux/auth/authApi.js';
 import { clearCredentials } from 'redux/auth/authSlice.js';
 import { authSelectors } from 'redux/auth';
+import styles from './userMenu.module.css';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -18,12 +19,12 @@ const UserMenu = () => {
   return (
     <>
       {username && (
-        <>
+        <div className={styles.userMenu}>
           <p>Welcome, {username}</p>
           <button type="button" onClick={onLogout} disabled={isLoading}>
             Logout
           </button>
-        </>
+        </div>
       )}
     </>
   );

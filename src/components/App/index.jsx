@@ -1,6 +1,8 @@
 import { lazy, Suspense, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import PrivateRoute from 'components/Routes/PrivateRoute.js';
+import PublicRoute from 'components/Routes/PublicRoute.js';
 import styles from './app.module.css';
 import { useUserInfoQuery } from 'redux/auth/authApi.js';
 import { authSelectors } from 'redux/auth';
@@ -47,9 +49,30 @@ export const App = _ => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/register" element={<RegistrationForm />} />
-            <Route path="/login" element={<LoginForm />} />
-            <Route path="/contacts" element={<Phonebook />} />
+            <Route
+              path="/register"
+              element={
+                <PublicRoute restricted>
+                  <RegistrationForm />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute restricted>
+                  <LoginForm />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute>
+                  <Phonebook />
+                </PrivateRoute>
+              }
+            ></Route>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
