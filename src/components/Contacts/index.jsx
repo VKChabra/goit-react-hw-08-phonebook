@@ -21,8 +21,8 @@ const Contacts = () => {
       {error && <p>{error.data}</p>}
       {isLoading && <Loader />}
       {isSuccess &&
-        filteredContacts().map(({ id, name, phone }) => (
-          <ContactsItem key={id} id={id} name={name} number={phone} />
+        filteredContacts().map(({ id, name, number }) => (
+          <ContactsItem key={id} id={id} name={name} number={number} />
         ))}
     </div>
   );

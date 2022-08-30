@@ -8,7 +8,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import filter from 'redux/filter/filterSlice';
 import { contactsApiSlice } from 'redux/contactsApi';
-import { usersApiSlice } from 'redux/auth/usersApi';
+import { authApiSlice } from 'redux/auth/authApi';
 import auth from 'redux/auth/authSlice';
 
 export const PERSISTED_AUTH = 'auth';
@@ -22,7 +22,7 @@ const persistConfig = {
 
 export const store = configureStore({
   reducer: {
-    [usersApiSlice.reducerPath]: usersApiSlice.reducer,
+    [authApiSlice.reducerPath]: authApiSlice.reducer,
     auth: persistReducer(persistConfig, auth),
     [contactsApiSlice.reducerPath]: contactsApiSlice.reducer,
     filter,
@@ -32,7 +32,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [REHYDRATE, PERSIST],
       },
-    }).concat(contactsApiSlice.middleware, usersApiSlice.middleware),
+    }).concat(authApiSlice.middleware, contactsApiSlice.middleware),
 });
 
 export let persistor = persistStore(store);

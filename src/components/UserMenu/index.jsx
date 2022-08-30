@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useLogoutMutation } from 'redux/auth/usersApi.js';
-import { setCredentials } from 'redux/auth/authSlice.js';
+import { useLogoutMutation } from 'redux/auth/authApi.js';
+import { clearCredentials } from 'redux/auth/authSlice.js';
 import { authSelectors } from 'redux/auth';
 
 const UserMenu = () => {
@@ -10,8 +10,8 @@ const UserMenu = () => {
 
   const onLogout = () => {
     logout()
-      .then(data => {
-        dispatch(setCredentials(data));
+      .then(response => {
+        dispatch(clearCredentials());
       })
       .catch(error => console.log(error));
   };

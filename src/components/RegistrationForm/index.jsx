@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useSignupMutation } from 'redux/auth/usersApi.js';
+import { useSignupMutation } from 'redux/auth/authApi.js';
 import { setCredentials } from 'redux/auth/authSlice.js';
 import { BtnLoader } from 'components/Loader';
 import styles from './registrationForm.module.css';

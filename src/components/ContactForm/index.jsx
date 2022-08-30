@@ -10,7 +10,7 @@ const ContactForm = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.elements.name.value;
-    const phone = form.elements.phone.value;
+    const number = form.elements.number.value;
     form.reset();
 
     const normalizedName = name.toLowerCase();
@@ -24,7 +24,7 @@ const ContactForm = () => {
 
     const contact = {
       name,
-      phone,
+      number,
     };
 
     addContact(contact);
@@ -46,7 +46,7 @@ const ContactForm = () => {
         Number
         <input
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required

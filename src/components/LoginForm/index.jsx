@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useLoginMutation } from 'redux/auth/usersApi.js';
+import { useLoginMutation } from 'redux/auth/authApi.js';
 import { setCredentials } from 'redux/auth/authSlice.js';
 import { BtnLoader } from 'components/Loader';
 import styles from './loginForm.module.css';
