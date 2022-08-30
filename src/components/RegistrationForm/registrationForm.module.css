@@ -1,15 +1,6 @@
-.userForm {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: max-content;
-  padding: 20px;
-  border: 1px solid black;
+.link {
+  color: #1976d2;
 }
-
-.formLabel {
-  display: inherit;
-  justify-content: space-between;
-  width: 250px;
-  margin-bottom: 20px;
+.link:hover {
+  color: #70b5fb;
 }
