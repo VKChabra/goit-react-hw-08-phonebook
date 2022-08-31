@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/Home.c1f264b4.chunk.css","mappings":"AAAA,qBACE,iBACF,CAEA,kBAEE,aAAc,CADd,oBAEF,CACA,wBACE,aACF","sources":["components/Home/home.module.css"],"sourcesContent":[".wrapper {\n  padding-left: 40px;\n}\n\n.link {\n  text-decoration: none;\n  color: #1976d2;\n}\n.link:hover {\n  color: #70b5fb;\n}\n"],"names":[],"sourceRoot":""}
