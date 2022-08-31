@@ -1,10 +1,15 @@
 import { useAddContactMutation } from 'redux/contactsApi.js';
+import { useGetContactsQuery } from 'redux/contactsApi.js';
 import { BtnLoader } from 'components/Loader';
 import styles from './contactForm.module.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactForm = () => {
   const [addContact, { isLoading }] = useAddContactMutation();
-  const contacts = [];
+  const { data: contacts } = useGetContactsQuery();
+
+  const notifyError = text => toast.error(text, { autoClose: 3000 });
 
   const submitAddContact = e => {
     e.preventDefault();
@@ -13,13 +18,23 @@ const ContactForm = () => {
     const number = form.elements.number.value;
     form.reset();
 
+    //nameCheck
     const normalizedName = name.toLowerCase();
-    const existingName = contacts.find(
+    const contactWithExistingName = contacts.find(
       contact => contact.name.toLowerCase() === normalizedName
     );
+    if (contactWithExistingName) {
+      return notifyError(`${name} is already in contacts`);
+    }
 
-    if (existingName) {
-      return alert(`${name} is already in contacts, sorry`);
+    //numberCheck
+    const contactWithExistingNumber = contacts.find(
+      contact => contact.number === number
+    );
+    if (contactWithExistingNumber) {
+      return notifyError(
+        `This number already belongs to ${contactWithExistingNumber.name}`
+      );
     }
 
     const contact = {

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from 'components/Routes/PrivateRoute.js';
 import PublicRoute from 'components/Routes/PublicRoute.js';
-import styles from './app.module.css';
+import { ToastContainer } from 'react-toastify';
 import { useUserInfoQuery } from 'redux/auth/authApi.js';
 import { authSelectors } from 'redux/auth';
 import { refetchUser } from 'redux/auth/authSlice.js';
@@ -45,38 +45,37 @@ export const App = _ => {
   return (
     <>
       <Navbar />
-      <div className={styles.wrapper}>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/register"
-              element={
-                <PublicRoute restricted>
-                  <RegistrationForm />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <PublicRoute restricted>
-                  <LoginForm />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/contacts"
-              element={
-                <PrivateRoute>
-                  <Phonebook />
-                </PrivateRoute>
-              }
-            ></Route>
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-        </Suspense>
-      </div>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute restricted>
+                <RegistrationForm />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute restricted>
+                <LoginForm />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <Phonebook />
+              </PrivateRoute>
+            }
+          ></Route>
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Suspense>
+      <ToastContainer />
     </>
   );
 };

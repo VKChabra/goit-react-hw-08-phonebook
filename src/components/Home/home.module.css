@@ -1,0 +1,11 @@
+.wrapper {
+  padding-left: 40px;
+}
+
+.link {
+  text-decoration: none;
+  color: #1976d2;
+}
+.link:hover {
+  color: #70b5fb;
+}
